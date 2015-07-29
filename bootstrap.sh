@@ -50,7 +50,23 @@ su -c 'clear' vagrant
 su -c 'sudo mkdir /var/www && sudo chmod 777 -R /var/www;' vagrant
 su -c 'ln -s /var/www ~/www;' vagrant
 
+#install ruby -dev package
+sudo apt-get install ruby-dev'
+
+#install bundle
+ sudo gem install bundle'
+
+#install dependancies
+sudo apt-get install libsqlite3-dev'
+
 # pssh / portly
-gem install pssh
+sudo gem install pssh
+
+#bundle install
+bundle install
+
+#start unicorn
+cd ~/www
+unicorn
 
 exit

@@ -34,26 +34,26 @@ sudo apt-get install -y -q \
   wget
 
  #configure app env
-'sudo mkdir /var/www && sudo chmod 777 -R /var/www;' vagrant
-'sudo ln -s /var/www ~/www;' vagrant
+su -c 'sudo mkdir /var/www && sudo chmod 777 -R /var/www;' vagrant
+su -c 'sudo ln -s /var/www ~/www;' vagrant
 
 # remove vagrant default ruby and install rvm
-sudo rm -rf /opt/vagrant_ruby/ && \curl -sSL https://get.rvm.io | bash -s stable --rails --ruby=2.1.1; vagrant
+su -c 'sudo rm -rf /opt/vagrant_ruby/ && \curl -sSL https://get.rvm.io | bash -s stable --rails --ruby=2.1.1; vagrant'
 
 
-#install ruby -dev package
-sudo apt-get install ruby-dev
+#install ruby deps for bundle
+sudo apt-get install -y -q \
+ruby-dev \
+libsqlite3-dev
 
 #install bundle
  sudo gem install bundle
-
-#install dependancies
-sudo apt-get install libsqlite3-dev
 
 #pssh / portly
 sudo gem install pssh
 
 #bundle install
+cd ~/www
 bundle install
 
 #start unicorn

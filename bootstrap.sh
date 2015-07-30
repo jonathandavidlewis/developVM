@@ -56,8 +56,10 @@ sudo gem install pssh
 su -c 'pwd;' vagrant
 
 #bundle install
-#TODO: start unicorn from www
 su -c 'cd ~/www/party_square && bundle install;' vagrant
+
+#get progect files
+#su -c 'cd ~/www && git clone https://github.com/rumblefishinc/party_square;' vagrant
 
 #start unicorn
 su -c 'cd ~/www/party_square && unicorn;' vagrant

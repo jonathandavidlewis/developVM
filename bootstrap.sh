@@ -33,33 +33,24 @@ sudo apt-get install -y -q \
   vim \
   wget
 
-
-# clone dotfiles
-su -c 'git clone https://github.com/riftrid3r/dotfiles.git ~/.dotfiles && cd ~/.dotfiles && rake install;' vagrant
+ #configure app env
+'sudo mkdir /var/www && sudo chmod 777 -R /var/www;' vagrant
+'sudo ln -s /var/www ~/www;' vagrant
 
 # remove vagrant default ruby and install rvm
-su -c 'sudo rm -rf /opt/vagrant_ruby/ && \curl -sSL https://get.rvm.io | bash -s stable --rails --ruby=2.1.1;' vagrant
+sudo rm -rf /opt/vagrant_ruby/ && \curl -sSL https://get.rvm.io | bash -s stable --rails --ruby=2.1.1; vagrant
 
-# install vundle
-# TODO: BundleInstall must run in a screen
-su -c 'mkdir -p ~/.vim/bundle' vagrant
-su -c 'git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle && vim +BundleInstall +qall;' vagrant
-su -c 'clear' vagrant
-
-# configure app env
-su -c 'sudo mkdir /var/www && sudo chmod 777 -R /var/www;' vagrant
-su -c 'ln -s /var/www ~/www;' vagrant
 
 #install ruby -dev package
-sudo apt-get install ruby-dev'
+sudo apt-get install ruby-dev
 
 #install bundle
- sudo gem install bundle'
+ sudo gem install bundle
 
 #install dependancies
-sudo apt-get install libsqlite3-dev'
+sudo apt-get install libsqlite3-dev
 
-# pssh / portly
+#pssh / portly
 sudo gem install pssh
 
 #bundle install
@@ -70,3 +61,13 @@ cd ~/www
 unicorn
 
 exit
+
+# clone dotfiles
+# su -c 'git clone https://github.com/riftrid3r/dotfiles.git ~/.dotfiles && cd ~/.dotfiles && rake install;' vagrant
+
+# install vundle
+# TODO: BundleInstall must run in a screen
+# su -c 'mkdir -p ~/.vim/bundle' vagrant
+# su -c 'git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle && vim +BundleInstall +qall;' vagrant
+# su -c 'clear' vagrant
+

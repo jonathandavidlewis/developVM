@@ -33,12 +33,12 @@ sudo apt-get install -y -q \
   vim \
   wget
 
- #configure app env
+#configure app env
 su -c 'sudo mkdir /var/www && sudo chmod 777 -R /var/www;' vagrant
 su -c 'sudo ln -s /var/www ~/www;' vagrant
 
-# remove vagrant default ruby and install rvm
-su -c 'sudo rm -rf /opt/vagrant_ruby/ && \curl -sSL https://get.rvm.io | bash -s stable --rails --ruby=2.1.1; vagrant'
+#remove vagrant default ruby and install rvm
+su -c 'sudo rm -rf /opt/vagrant_ruby/ && \curl -sSL https://get.rvm.io | bash -s stable --rails --ruby=2.1.1;' vagrant
 
 
 #install ruby deps for bundle
@@ -47,27 +47,28 @@ ruby-dev \
 libsqlite3-dev
 
 #install bundle
- sudo gem install bundle
+sudo gem install bundle
 
 #pssh / portly
 sudo gem install pssh
 
+#debug 
+su -c 'pwd;' vagrant
+
 #bundle install
-cd ~/www
-bundle install
+#TODO: start unicorn from www
+su -c 'cd ~/www/party_square && bundle install;' vagrant
 
 #start unicorn
-cd ~/www
-unicorn
+su -c 'cd ~/www/party_square && unicorn;' vagrant
 
-exit
-
-# clone dotfiles
+#clone dotfiles
 # su -c 'git clone https://github.com/riftrid3r/dotfiles.git ~/.dotfiles && cd ~/.dotfiles && rake install;' vagrant
 
-# install vundle
-# TODO: BundleInstall must run in a screen
+#install vundle
+#TODO: BundleInstall must run in a screen
 # su -c 'mkdir -p ~/.vim/bundle' vagrant
 # su -c 'git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle && vim +BundleInstall +qall;' vagrant
 # su -c 'clear' vagrant
 
+exit

@@ -24,7 +24,7 @@ cd webdev0
 ##change dir to project www directory on local and clone the project files
 ```shell
   cd ~/webdev0/www
-  git clone https://github.com/rumblefishinc/party_square
+  git clone https://github.com/<username>/<repo>
 ```
 #change dir to project VM directory and provision the VM
 ```shell  

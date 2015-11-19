@@ -63,14 +63,8 @@ sudo gem install pssh
 #debug
 su -c 'pwd;' vagrant
 
-#bundle install
-su -c 'cd ~/www && bundle install;' vagrant
+rails s -b 0.0.0.0
 
-#get progect files
-#su -c 'cd ~/www && git clone https://github.com/rumblefishinc/party_square;' vagrant
-
-#start unicorn
-su -c 'cd ~/www;' vagrant
 
 #clone dotfiles
 # su -c 'git clone https://github.com/riftrid3r/dotfiles.git ~/.dotfiles && cd ~/.dotfiles && rake install;' vagrant

@@ -52,25 +52,7 @@ sudo gem install bundle
 #pssh / portly
 sudo gem install pssh
 
-#debug 
+#debug
 su -c 'pwd;' vagrant
-
-#bundle install
-su -c 'cd ~/www/party_square && bundle install;' vagrant
-
-#get progect files
-#su -c 'cd ~/www && git clone https://github.com/rumblefishinc/party_square;' vagrant
-
-#start unicorn
-su -c 'cd ~/www/party_square && unicorn;' vagrant
-
-#clone dotfiles
-# su -c 'git clone https://github.com/riftrid3r/dotfiles.git ~/.dotfiles && cd ~/.dotfiles && rake install;' vagrant
-
-#install vundle
-#TODO: BundleInstall must run in a screen
-# su -c 'mkdir -p ~/.vim/bundle' vagrant
-# su -c 'git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle && vim +BundleInstall +qall;' vagrant
-# su -c 'clear' vagrant
 
 exit

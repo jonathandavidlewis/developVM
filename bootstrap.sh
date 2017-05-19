@@ -8,12 +8,15 @@ export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 locale-gen en_US.UTF-8
 # Add Repository
-sudo apt-get -y -q install python-software-properties
 sudo add-apt-repository ppa:pi-rho/dev
+
+#update repo lists
 sudo apt-get update
 
+#do installs
 install basic unix packages
 sudo apt-get install -y -q \
+	python-software-properties \
   bash-completion \
   build-essential \
   curl \
@@ -35,21 +38,6 @@ sudo apt-get install -y -q \
 # configure app env
 su -c 'sudo mkdir /var/www && sudo chmod 777 -R /var/www;' vagrant
 su -c 'sudo ln -s /var/www ~/www;' vagrant
-
-# remove vagrant default ruby and install rvm
-su -c 'sudo rm -rf /opt/vagrant_ruby/ && \curl -sSL https://get.rvm.io | bash -s stable --rails --ruby=2.1.1;' vagrant
-
-
-# install ruby deps for bundle
-sudo apt-get install -y -q \
-ruby-dev \
-libsqlite3-dev
-
-# install bundle
-sudo gem install bundle
-
-# pssh / portly
-sudo gem install pssh
 
 # debug
 su -c 'pwd;' vagrant
